@@ -1,20 +1,32 @@
 /* Typography */
-<<<<<<< HEAD
+h1, h2, h3, h4, h5 {
+    all: unset;
+    font-family: "Tilt Warp", sans-serif;
+    font-optical-sizing: auto;
+}
+
+p, a {
+    all: unset;
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+}
+
   h1 {
-    font-size: 94px; /* Tailwind's text-5xl */
-    font-weight: 900;
-    color: #0F0E0E; /* text-gray-900 */
+    letter-spacing: -4px;
+    font-size: 94px;
+    font-weight: 400;
+    color: #0F0E0E;
     line-height: 95%;
   }
 
-  h1.emphasized {
-    color: #FF5700; /* text-gray-900 */
+  h1 span.emphasized {
+    color: #FF5700;
   }
 
   h2 {
-    font-size: 1.875rem; /* text-3xl */
+    font-size: 1.875rem;
     font-weight: 700;
-    color: #0F0E0E; /* text-gray-800 */
+    color: #0F0E0E;
   }
 
   p {
@@ -23,6 +35,8 @@
   }
 
   a {
+    font-size: 20px;
+    letter-spacing: 0px;
     text-decoration: none;
   }
 
@@ -36,6 +50,7 @@
     margin-top: 40px;
     padding: 24px 24px; /* py-3 px-6 */
     background-color: #0F0E0E;
+    color: #ffffff;
     font-weight: 500;
     transition: all 0.2s;
     cursor: pointer;
@@ -45,13 +60,9 @@
     background-color: #333333;
   }
 
-  button, a {
-    color: #ffffff;
-  }
-
-  button.primary {
+  /* button.primary {
     color: white;
-  }
+  } */
 
   button.primary:hover {
     background-color: #FF5700;
@@ -66,5 +77,3 @@
   button.secondary:hover {
     background-color: #eef2ff; /* Tailwind’s indigo-50 */
   }
-=======
->>>>>>> master
