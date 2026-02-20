@@ -1,0 +1,67 @@
+/* Typography */
+  h1 {
+    font-size: 94px; /* Tailwind's text-5xl */
+    font-weight: 900;
+    color: #0F0E0E; /* text-gray-900 */
+    line-height: 95%;
+  }
+
+  h1.emphasized {
+    color: #FF5700; /* text-gray-900 */
+  }
+
+  h2 {
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 700;
+    color: #0F0E0E; /* text-gray-800 */
+  }
+
+  p {
+    font-size: 1.125rem; /* text-lg */
+    color: #4b5563; /* text-gray-600 */
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    /* color: #FF5700; indigo-700 */
+  }
+
+
+/* Buttons */
+  button {
+    margin-top: 40px;
+    padding: 24px 24px; /* py-3 px-6 */
+    background-color: #0F0E0E;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #333333;
+  }
+
+  button, a {
+    color: #ffffff;
+  }
+
+  button.primary {
+    color: white;
+  }
+
+  button.primary:hover {
+    background-color: #FF5700;
+  }
+
+  button.secondary {
+    border: 2px solid #4f46e5;
+    color: #4f46e5;
+    background-color: transparent;
+  }
+
+  button.secondary:hover {
+    background-color: #eef2ff; /* Tailwind’s indigo-50 */
+  }
