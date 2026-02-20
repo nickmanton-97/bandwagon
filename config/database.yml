@@ -13,6 +13,4 @@ test:
 
 production:
   <<: *default
-  database: bandwagon_production
-  username: <%= ENV['POSTGRES_USER'] %> # optional if you have a specific user
-  password: <%= ENV['POSTGRES_PASSWORD'] %> # optional
+  url: <%= ENV['DATABASE_URL'] %>
