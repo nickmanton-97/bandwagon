@@ -1,4 +1,5 @@
 /* Typography */
+<<<<<<< HEAD
   h1 {
     font-size: 94px; /* Tailwind's text-5xl */
     font-weight: 900;
@@ -65,3 +66,5 @@
   button.secondary:hover {
     background-color: #eef2ff; /* Tailwind’s indigo-50 */
   }
+=======
+>>>>>>> master
