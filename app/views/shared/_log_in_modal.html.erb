@@ -1,27 +1,42 @@
 <div id="log-in-modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <h2>Log In</h2>
+
+    <div class="form-wrapper">
+    <div class="form-header">
+      <h1>Log in</h1>
+      <p>Sign in to your account.</p>
+    </div>
 
     <%= form_for(User.new, url: session_path(:user)) do |f| %>
-      <div class="mb-4">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: "w-full border p-2 rounded" %>
-      </div>
+        <div class="form-container">
+          <div class="form-field">
+            <p class="caption"><%= f.label :email %></p>
+            <p class="semibold"><%= f.email_field :email, class: "field" %></p>
+          </div>
 
-      <div class="mb-4">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: "w-full border p-2 rounded" %>
-      </div>
+          <div class="form-field">
+            <p class="caption"><%= f.label :password %><p>
+            <p class="semibold"><%= f.password_field :password, class: "field" %><p>
+          </div>
 
-      <div class="flex justify-between items-center mb-4">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, "Remember me" %>
-      </div>
+          <div class="remember-me">
+            <%= f.check_box :remember_me, class: "checkbox" %>
+            <p class="caption"><%= f.label :remember_me, "Remember me", class: "caption" %></p>
+          </div>
 
-      <div class="flex justify-end">
-        <%= f.submit "Log In", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
-      </div>
+        <div class="form-actions">
+        <button class="button">
+          <%= f.submit "Log In"%>
+        </button>
+        <p class="caption" href="">Already have an account? Log in</p>
+        </div>
+        </div>
+  </div>
+   <div class="form-banner-img">
+      <img src="images/form/form_banner_01.png" alt="Log In Image">
+    </div>
+  </div>
     <% end %>
   </div>
 </div>

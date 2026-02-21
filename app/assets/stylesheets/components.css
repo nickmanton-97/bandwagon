@@ -23,3 +23,85 @@ nav .nav-links a {
 }
 
 /* Hero Section */
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* Modal Form */
+.form-wrapper {
+    padding: 80px 120px;
+    min-width: 540px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form-header {
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.form-header p {
+  font-weight: 300;
+  color: #8C8D92;
+}
+
+.form-container p.caption {
+  color: #8C8D92;
+}
+
+.form-container input.field {
+  all: unset;
+  box-sizing: border-box; /* ensures padding works as expected */
+  border-bottom: 1px solid #0F0E0E;
+  padding: 10px 0;        /* top and bottom padding */
+  width: 100%;            /* fills the container */
+  font-family: "Geist", sans-serif; /* optional: keep typography consistent */
+  font-size: 20px;        /* optional: readable size */
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  gap: 10px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;   /* vertical alignment */
+  gap: 8px;              /* space between checkbox and label */
+}
+
+.form-container {
+  flex: 1;
+}
+
+.form-banner-img {
+  width: 420px;
+  overflow: hidden;
+}
+
+.form-banner-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* better than fill */
+  display: block;
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}

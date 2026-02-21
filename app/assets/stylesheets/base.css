@@ -79,12 +79,20 @@ p, a {
     /* color: #FF5700; indigo-700 */
   }
 
+  p.caption {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
 
 /* Buttons */
   button {
     margin-top: 40px;
     stroke: none;
     padding: 20px 24px;
+    font-size: 20px;
     background-color: #0F0E0E;
     color: #ffffff;
     font-weight: 500;

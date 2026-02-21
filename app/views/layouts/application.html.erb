@@ -19,7 +19,13 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%# <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="<%= asset_path('reset/reset.css') %>">
+    <link rel="stylesheet" href="<%= asset_path('application.css') %>">
+    <link rel="stylesheet" href="<%= asset_path('base.css') %>">
+    <link rel="stylesheet" href="<%= asset_path('components.css') %>">
+    <link rel="stylesheet" href="<%= asset_path('containers.css') %>">
+
     <%= javascript_importmap_tags %>
 
     <%# Tilt Warp and Geist fonts from Google Fonts %>
