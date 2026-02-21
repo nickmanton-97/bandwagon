@@ -1,0 +1,27 @@
+<div id="log-in-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Log In</h2>
+
+    <%= form_for(User.new, url: session_path(:user)) do |f| %>
+      <div class="mb-4">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "w-full border p-2 rounded" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "w-full border p-2 rounded" %>
+      </div>
+
+      <div class="flex justify-between items-center mb-4">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "Remember me" %>
+      </div>
+
+      <div class="flex justify-end">
+        <%= f.submit "Log In", class: "bg-blue-500 text-white px-4 py-2 rounded" %>
+      </div>
+    <% end %>
+  </div>
+</div>

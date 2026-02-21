@@ -1,38 +1,76 @@
 <!-- app/views/home/index.html.erb -->
 
-<!-- Navigation / Logged Out (Pinned Top) -->
+<!-- Navigation -->
 <nav class="logged-out">
   <div class="logo-container">
     <p class="logo">Bandwagon</p>
   </div>
   <div class="nav-links">
-    <a><%= link_to "Sign up", new_user_registration_path, class: "" %></a>
-    <a><%= link_to "Log in", new_user_session_path, class: "" %></a>
+    <a href="#" class="nav-sign-up">Sign up</a>
+    <a href="#" class="nav-log-in">Log in</a>
+  </div>
 </nav>
 
 <!-- Main Content -->
 <main>
-
   <!-- Hero Heading -->
   <div class="hero-section">
     <h1>Find Your People.<br>
-    <span class="emphasized">Make Your Sound.</span><h1>
-    <!-- Call to Action Buttons -->
-    <div>
-      <button><%= link_to "Sign Up to get started", new_user_registration_path, class: "" %></button>
-      <a><%= link_to "Already have an account? Log in", new_user_session_path, class: "" %></a>
+      <span class="emphasized">Make Your Sound.</span>
+    </h1>
+    <div class="cta-buttons">
+      <button class="nav-sign-up">Sign Up to get started</button>
+      <button class="nav-log-in">Already have an account? Log in</button>
     </div>
   </div>
 
-
   <!-- Graphic / Hero Placeholder -->
-  <div class="">
-    <p class="">[Graphic Placeholder]</p>
+  <div class="hero-graphic">
+    <p>[Graphic Placeholder]</p>
   </div>
-
 </main>
 
 <!-- Footer -->
-<footer class="">
+<footer>
   &copy; <%= Time.now.year %> Bandwagon. All rights reserved.
 </footer>
+
+<!-- Modals -->
+<%= render "shared/sign_up_modal" %>
+<%= render "shared/log_in_modal" %>
+
+<!-- JS to toggle modals -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const signUpButtons = document.querySelectorAll(".nav-sign-up")
+    const logInButtons = document.querySelectorAll(".nav-log-in")
+    const signUpModal = document.getElementById("sign-up-modal")
+    const logInModal = document.getElementById("log-in-modal")
+    const closeButtons = document.querySelectorAll(".modal .close")
+
+    // Open modals
+    signUpButtons.forEach(btn => btn.addEventListener("click", e => {
+      e.preventDefault()
+      signUpModal.style.display = "flex"
+      logInModal.style.display = "none"
+    }))
+
+    logInButtons.forEach(btn => btn.addEventListener("click", e => {
+      e.preventDefault()
+      logInModal.style.display = "flex"
+      signUpModal.style.display = "none"
+    }))
+
+    // Close buttons
+    closeButtons.forEach(btn => btn.addEventListener("click", () => {
+      btn.closest(".modal").style.display = "none"
+    }))
+
+    // Close modal on clicking outside content
+    document.querySelectorAll(".modal").forEach(modal => {
+      modal.addEventListener("click", e => {
+        if(e.target === modal) modal.style.display = "none"
+      })
+    })
+  })
+</script>
