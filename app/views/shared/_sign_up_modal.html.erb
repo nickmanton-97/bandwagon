@@ -3,7 +3,7 @@
     <span class="close">&times;</span>
     <h2>Sign Up</h2>
 
-    <%= form_for(User.new, url: registration_path(:user)) do |f| %>
+    <%= form_for(User.new, url: user_registration_path) do |f| %>
       <div class="mb-4">
         <%= f.label :email %>
         <%= f.email_field :email, class: "w-full border p-2 rounded" %>

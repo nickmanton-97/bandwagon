@@ -1,15 +1,15 @@
-# app/controllers/users/registrations_controller.rb
 class Users::RegistrationsController < Devise::RegistrationsController
+  skip_before_action :require_no_authentication, only: [:create]
+
   protected
 
-  # Override Devise's after_sign_in_path_for for signups
+  # Override Devise's after_sign_up_path_for for new signups
+  def after_sign_up_path_for(resource)
+    new_profile_path
+  end
+
+  # Override Devise's after_sign_in_path_for for logins
   def after_sign_in_path_for(resource)
-    if resource.sign_in_count == 1
-      # This is the first time they sign in => just after sign up
-      new_profile_path
-    else
-      # Normal login
-      profiles_path
-    end
+    profiles_path
   end
 end
