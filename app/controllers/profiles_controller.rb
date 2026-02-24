@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_profile, only: [:show, :edit, :update]
-  before_action :ensure_profile_exists, only: [:index]
 
   def index
     if params[:filter].present?
@@ -49,13 +48,6 @@ class ProfilesController < ApplicationController
   end
 
   private
-
-  def ensure_profile_exists
-    if user_signed_in? && current_user.profile.blank?
-      redirect_to new_profile_path
-    end
-  end
-
   def set_profile
     @profile = Profile.find(params[:id])
   end
