@@ -170,7 +170,8 @@ nav .nav-links a {
 }
 
 .step-1 {
-  display: flex;
+  display: none;
+  /* display: flex; */
   flex-direction: column;
   justify-content: space-between;
   gap: 80px;
@@ -179,13 +180,29 @@ nav .nav-links a {
 }
 
 .step-2 {
-    display: none;
+  display: none;
   background-color: #32CE57;
+   flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
 }
 
 .step-3 {
-  display: none;
+  /* display: none; */
+  display: flex;
   background-color: #A3CAFF;
+   flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.commitment-option {
+  max-width: 600px;
+  cursor: pointer;
+}
+
+.commitment-option:hover {
+  text-decoration: underline;
 }
 
 .step-navigation {

@@ -11,7 +11,7 @@
 
     <div class="step step-1 active">
       <div class="step-body-container">
-        <p class="semibold">Where are you based?</h2>
+        <p class="semibold" id="step-heading">Where are you based?</h2>
         <div class="form-container">
           <%# Form field %>
           <div class="form-field" id="location-field">
@@ -52,11 +52,16 @@
     </div>
 
     <div class="step step-3">
-      <h2>Genres</h2>
-      <%= f.text_field :genres %>
-      <%= f.submit "Finish", class: "button" %>
-    </div>
-
+      <div class="step-body-container">
+        <p class="semibold" id="step-heading">How seriously are you pursuing music right now?</h2>
+          <%# Form field %>
+            <h2 class="commitment-option" id="true">Music is my main focus or income</h3>
+            <h2 class="commitment-option" id="false">Music is a side passion or hobby</h3>
+          </div>
+       <div class="step-navigation">
+          <p>Cancel</p>
+          <button type="button" class="next"><%= f.submit "Finish", class: "button" %></button>
+        </div>
   </div>
 
 <% end %>
@@ -178,6 +183,45 @@
         .slice(0, 6);
 
       renderSuggestions(matches);
+    });
+
+// Commitment Options - moved inside DOMContentLoaded
+    const commitmentOptions = document.querySelectorAll(".commitment-option");
+    let selectedOption = null;
+
+    commitmentOptions.forEach(option => {
+      option.addEventListener("mouseenter", () => {
+        if (!selectedOption) {
+          commitmentOptions.forEach(opt => {
+            if (opt !== option) {
+              opt.style.opacity = "0.5";
+            } else {
+              opt.style.opacity = "1";
+            }
+          });
+        }
+      });
+
+      option.addEventListener("mouseleave", () => {
+        if (!selectedOption) {
+          commitmentOptions.forEach(opt => {
+            opt.style.opacity = "1";
+          });
+        }
+      });
+
+      option.addEventListener("click", () => {
+        selectedOption = option;
+        commitmentOptions.forEach(opt => {
+          if (opt !== option) {
+            opt.style.opacity = "0.5";
+            opt.style.textDecoration = "none";
+          } else {
+            opt.style.opacity = "1";
+            opt.style.textDecoration = "underline";
+          }
+        });
+      });
     });
   });
 </script>
