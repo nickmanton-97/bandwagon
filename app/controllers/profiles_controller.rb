@@ -53,6 +53,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, instruments: [], genres: [])
+    params.require(:profile).permit(:name, :bio, :location, instruments: [], genres: [])
   end
 end

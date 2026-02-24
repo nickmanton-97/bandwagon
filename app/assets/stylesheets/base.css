@@ -112,6 +112,38 @@ p, a {
   cursor: pointer;
 }
 
+
+/* Fields */
+
+#location-field {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.location-input {
+  border: 2px solid #FF5700;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.location-input::placeholder {
+  font-family: "Tilt Warp", sans-serif;
+  font-size: 32px;
+  line-height: 100%;     /* optional: readable size */
+}
+
+.location-suggestion-item {
+  font-family: "Tilt Warp", sans-serif;
+  font-size: 32px;
+  line-height: 100%;     /* optional: readable size */
+}
+
+.location-suggestion-item:hover {
+  opacity: 80%;
+}
+
 /* Buttons */
   button {
     border: none;

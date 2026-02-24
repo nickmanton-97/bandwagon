@@ -14,10 +14,14 @@
         <p class="semibold">Where are you based?</h2>
         <div class="form-container">
           <%# Form field %>
-          <div class="form-field">
+          <div class="form-field" id="location-field">
             <p class="caption-black" id="black">Search below</p>
 
-            <%= f.text_field :location, class: "field", placeholder: "Enter location" %>
+            <%= f.text_field :location,
+                  class: "field location-input",
+                  placeholder: "e.g. Fitzroy, Melbourne, VIC" %>
+
+            <div id="location-suggestions" class="location-suggestions"></div>
           </div>
       </div>
       </div>
@@ -56,3 +60,124 @@
   </div>
 
 <% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.querySelector(".location-input");
+    const suggestionsContainer = document.getElementById("location-suggestions");
+
+    if (!input || !suggestionsContainer) return;
+
+    const locations = [
+      "Fitzroy, Melbourne, VIC",
+      "Collingwood, Melbourne, VIC",
+      "Brunswick, Melbourne, VIC",
+      "Geelong, VIC",
+      "Torquay, VIC",
+      "St Kilda, Melbourne, VIC",
+      "South Yarra, Melbourne, VIC",
+      "Carlton, Melbourne, VIC",
+      "Richmond, Melbourne, VIC",
+      "Prahran, Melbourne, VIC",
+      "Footscray, Melbourne, VIC",
+      "Hawthorn, Melbourne, VIC",
+      "Camberwell, Melbourne, VIC",
+      "Coburg, Melbourne, VIC",
+      "Northcote, Melbourne, VIC",
+      "Malvern, Melbourne, VIC",
+      "Brighton, Melbourne, VIC",
+      "Elwood, Melbourne, VIC",
+      "Kew, Melbourne, VIC",
+      "Balwyn, Melbourne, VIC",
+      "Newtown, Sydney, NSW",
+      "Surry Hills, Sydney, NSW",
+      "Bondi, Sydney, NSW",
+      "Manly, Sydney, NSW",
+      "Parramatta, Sydney, NSW",
+      "Paddington, Sydney, NSW",
+      "Redfern, Sydney, NSW",
+      "Glebe, Sydney, NSW",
+      "Rose Bay, Sydney, NSW",
+      "Coogee, Sydney, NSW",
+      "Double Bay, Sydney, NSW",
+      "Mosman, Sydney, NSW",
+      "Chatswood, Sydney, NSW",
+      "North Sydney, Sydney, NSW",
+      "Woollahra, Sydney, NSW",
+      "Neutral Bay, Sydney, NSW",
+      "Potts Point, Sydney, NSW",
+      "Fortitude Valley, Brisbane, QLD",
+      "West End, Brisbane, QLD",
+      "South Brisbane, Brisbane, QLD",
+      "St Lucia, Brisbane, QLD",
+      "Toowong, Brisbane, QLD",
+      "Fremantle, Perth, WA",
+      "Northbridge, Perth, WA",
+      "Subiaco, Perth, WA",
+      "Cottesloe, Perth, WA",
+      "Scarborough, Perth, WA",
+      "Battery Point, Hobart, TAS",
+      "Sandy Bay, Hobart, TAS",
+      "West Hobart, Hobart, TAS",
+      "Moonah, Hobart, TAS",
+      "Kingston, Hobart, TAS",
+      "North Adelaide, Adelaide, SA",
+      "Norwood, Adelaide, SA",
+      "Glenelg, Adelaide, SA",
+      "Prospect, Adelaide, SA",
+      "Unley, Adelaide, SA",
+      "Darwin City, Darwin, NT",
+      "Parap, Darwin, NT",
+      "Larrakeyah, Darwin, NT",
+      "Casuarina, Darwin, NT",
+      "Nightcliff, Darwin, NT",
+      "Belconnen, Canberra, ACT",
+      "Kingston, Canberra, ACT",
+      "Civic, Canberra, ACT",
+      "Manuka, Canberra, ACT",
+      "Gungahlin, Canberra, ACT",
+    ];
+
+    function renderSuggestions(matches) {
+      suggestionsContainer.innerHTML = "";
+
+      if (matches.length === 0) return;
+
+      matches.forEach(location => {
+        const item = document.createElement("div");
+        item.className = "location-suggestion-item";
+        item.textContent = location;
+
+        item.addEventListener("click", () => {
+          input.value = location;
+          suggestionsContainer.innerHTML = "";
+        });
+
+        suggestionsContainer.appendChild(item);
+      });
+
+      if (window.gsap && matches.length > 0) {
+        window.gsap.fromTo(
+          ".location-suggestion-item",
+          { opacity: 0, y: 8 },
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.08 }
+        );
+      }
+    }
+
+    input.addEventListener("input", (event) => {
+      const query = event.target.value.trim().toLowerCase();
+
+      if (!query) {
+        suggestionsContainer.innerHTML = "";
+        return;
+      }
+
+      const matches = locations
+        .filter(location => location.toLowerCase().includes(query))
+        .slice(0, 6);
+
+      renderSuggestions(matches);
+    });
+  });
+</script>

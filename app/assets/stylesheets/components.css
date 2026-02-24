@@ -80,6 +80,22 @@ nav .nav-links a {
   gap: 10px;
 }
 
+.location-input::placeholder {
+  color: rgba(15, 14, 14, 0.3); /* #0F0E0E at ~30% opacity */
+  font-size: 40px; /* H4 size */
+}
+
+.location-suggestions {
+  margin-top: 24px;
+}
+
+.location-suggestion-item {
+  color: #0F0E0E;
+  font-size: 40px; /* H4 size */
+  cursor: pointer;
+  margin: 12px 0;
+}
+
 .remember-me {
   display: flex;
   align-items: center;   /* vertical alignment */

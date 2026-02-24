@@ -1,0 +1,62 @@
+suburb,city,state
+Fitzroy,Melbourne,VIC
+Collingwood,Melbourne,VIC
+Brunswick,Melbourne,VIC
+Northcote,Melbourne,VIC
+Carlton,Melbourne,VIC
+Footscray,Melbourne,VIC
+St Kilda,Melbourne,VIC
+Richmond,Melbourne,VIC
+Preston,Melbourne,VIC
+Thornbury,Melbourne,VIC
+Geelong,Geelong,VIC
+Torquay,Surf Coast,VIC
+
+Newtown,Sydney,NSW
+Surry Hills,Sydney,NSW
+Marrickville,Sydney,NSW
+Redfern,Sydney,NSW
+Chippendale,Sydney,NSW
+Enmore,Sydney,NSW
+Darlinghurst,Sydney,NSW
+Petersham,Sydney,NSW
+Parramatta,Sydney,NSW
+Glebe,Sydney,NSW
+
+Fortitude Valley,Brisbane,QLD
+West End,Brisbane,QLD
+New Farm,Brisbane,QLD
+Teneriffe,Brisbane,QLD
+Bowen Hills,Brisbane,QLD
+Woolloongabba,Brisbane,QLD
+Paddington,Brisbane,QLD
+South Brisbane,Brisbane,QLD
+Nundah,Brisbane,QLD
+
+Northbridge,Perth,WA
+Fremantle,Perth,WA
+Mount Lawley,Perth,WA
+Leederville,Perth,WA
+Subiaco,Perth,WA
+Victoria Park,Perth,WA
+Scarborough,Perth,WA
+
+Adelaide CBD,Adelaide,SA
+Norwood,Adelaide,SA
+Unley,Adelaide,SA
+Hindmarsh,Adelaide,SA
+Port Adelaide,Adelaide,SA
+Glenelg,Adelaide,SA
+
+Battery Point,Hobart,TAS
+North Hobart,Hobart,TAS
+Sandy Bay,Hobart,TAS
+Moonah,Hobart,TAS
+
+Braddon,Canberra,ACT
+New Acton,Canberra,ACT
+Kingston,Canberra,ACT
+
+Darwin City,Darwin,NT
+Parap,Darwin,NT
+Nightcliff,Darwin,NT
