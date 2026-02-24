@@ -39,9 +39,15 @@
     </div>
 
     <div class="step step-2">
-      <h2>Your experience level</h2>
-      <%= f.select :skill_level, ["Beginner", "Intermediate", "Pro"] %>
-      <button type="button" class="next">Next</button>
+      <div class="step-body-container">
+        <p class="semibold" id="step-heading">Tell us about yourself (50 words or less).</h2>
+          <%# Form field %>
+            <h2 class="bio-form">Start typing</h3>
+          </div>
+           <div class="step-navigation">
+          <p>Cancel</p>
+          <button type="button" class="next"><%= f.submit "Next", class: "button" %></button>
+        </div>
     </div>
 
     <div class="step-label" id="step-3">

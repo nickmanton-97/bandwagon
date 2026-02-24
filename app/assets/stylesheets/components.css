@@ -180,16 +180,20 @@ nav .nav-links a {
 }
 
 .step-2 {
-  display: none;
+  /* display: none; */
+  display: flex;
   background-color: #32CE57;
    flex-direction: column;
   justify-content: space-between;
   gap: 80px;
 }
 
+.bio-form {
+  opacity: 50%;
+}
 .step-3 {
-  /* display: none; */
-  display: flex;
+  display: none;
+  /* display: flex; */
   background-color: #A3CAFF;
    flex-direction: column;
   justify-content: space-between;
