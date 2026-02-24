@@ -87,6 +87,15 @@ p, a {
     text-transform: uppercase;
   }
 
+  p.caption-black {
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 140%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #0F0E0E;
+  }
+
 /* Buttons */
   button {
     margin-top: 40px;

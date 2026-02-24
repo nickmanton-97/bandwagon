@@ -105,3 +105,79 @@ nav .nav-links a {
   gap: 20px;
   text-align: center;
 }
+
+/* Profile Creation Wizard */
+
+.wizard {
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  overflow: hidden;
+}
+
+.step-label {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.step-label-text {
+  display: flex;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  gap: 40px;
+}
+
+#step-1 {
+  background-color: #FF5700;
+}
+
+
+#step-2 {
+  background-color: #32CE57;
+}
+
+
+#step-3 {
+  background-color: #A3CAFF;
+}
+
+.step {
+  flex: 1;
+  padding: 40px 80px;
+}
+
+.step-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 80px;
+  background-color: #FF5700;
+  width: fit-content;
+}
+
+.step-2 {
+    display: none;
+  background-color: #32CE57;
+}
+
+.step-3 {
+  display: none;
+  background-color: #A3CAFF;
+}
+
+.step-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.step-body-container {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
