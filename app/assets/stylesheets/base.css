@@ -1,12 +1,17 @@
-/* TYPOGRAPHY */
+/* Global */
 
+body {
+  background-color: #f5f5f5; /* bg-gray-50 */
+}
+
+/* TYPOGRAPHY */
 
 /* Headings */
 h1, h2, h3, h4, h5 {
     all: unset;
     font-family: "Tilt Warp", sans-serif;
     font-optical-sizing: auto;
-    letter-spacing: -4px;
+    letter-spacing: -2px;
     color: #0F0E0E;
 }
 
@@ -23,24 +28,30 @@ p, a {
     line-height: 95%;
   }
 
+  h1, .oversized {
+    font-size: 84px;
+    line-height: 95%;
+    letter-spacing: -4px;
+  }
+
   h1 span.emphasized {
     color: #FF5700;
   }
 
   h2 {
-    font-size: 80px;
+    font-size: 72px;
     line-height: 95%;
     font-weight: 700;
     color: #0F0E0E;
   }
 
   h3 {
-    font-size: 68px;
+    font-size: 46px;
     line-height: 100%;
   }
 
   h4 {
-    font-size: 40px;
+    font-size: 32px;
     line-height: 100%;
   }
 
@@ -96,8 +107,15 @@ p, a {
     color: #0F0E0E;
   }
 
+.underlined {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* Buttons */
   button {
+    border: none;
+    background: none;
     margin-top: 40px;
     stroke: none;
     padding: 20px 24px;
