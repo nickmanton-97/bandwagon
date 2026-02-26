@@ -188,9 +188,15 @@ nav .nav-links a {
   gap: 80px;
 }
 
+.step-navigation-buttons {
+  display: flex;
+  gap: 16px;
+}
+
 .bio-form {
   opacity: 50%;
 }
+
 .step-3 {
   display: none;
   /* display: flex; */
