@@ -1,7 +1,9 @@
+<!-- filepath: app/views/profiles/new.html.erb -->
 <%= form_with model: @profile do |f| %>
 
-  <div class="wizard">
+  <div class="wizard" data-controller="wizard">
 
+    <!-- STEP 1: LOCATION -->
     <div class="step-label" id="step-1">
       <div class="step-label-text">
         <h3>1</h3>
@@ -9,28 +11,26 @@
       </div>
     </div>
 
-    <div class="step step-1 active">
+    <div class="step step-1 active" data-wizard-target="step" id="step-1-content">
       <div class="step-body-container">
-        <p class="semibold" id="step-heading">Where are you based?</h2>
+        <p class="semibold" id="step-heading">Where are you based?</p>
         <div class="form-container">
-          <%# Form field %>
           <div class="form-field" id="location-field">
             <p class="caption-black" id="black">Search below</p>
-
             <%= f.text_field :location,
                   class: "field location-input",
                   placeholder: "e.g. Fitzroy, Melbourne, VIC" %>
-
             <div id="location-suggestions" class="location-suggestions"></div>
           </div>
-      </div>
-      </div>
-        <div class="step-navigation">
-          <p>Cancel</p>
-          <button type="button" class="next">Next</button>
         </div>
+      </div>
+      <div class="step-navigation">
+        <p>Cancel</p>
+        <button type="button" class="next">Next</button>
+      </div>
     </div>
 
+    <!-- STEP 2: BIO -->
     <div class="step-label" id="step-2">
       <div class="step-label-text">
         <h3>2</h3>
@@ -38,21 +38,28 @@
       </div>
     </div>
 
-    <div class="step step-2">
+    <div class="step step-2" data-wizard-target="step" id="step-2-content">
       <div class="step-body-container">
-        <p class="semibold" id="step-heading">Tell us about yourself (50 words or less).</h2>
-          <%# Form field %>
-            <h2 class="bio-form">Start typing</h3>
-          </div>
-           <div class="step-navigation">
-          <p>Cancel</p>
-          <div class="step-navigation-buttons">
-            <button type="button" class="back"><%= f.submit "Back", class: "button" %></button>
-            <button type="button" class="next"><%= f.submit "Next", class: "button" %></button>
+        <p class="semibold" id="step-heading">Tell us about yourself (50 words or less).</p>
+        <div class="form-container">
+          <div class="form-field">
+            <%= f.text_area :bio,
+                  class: "field bio-textarea",
+                  placeholder: "Start typing…",
+                  rows: 8 %>
           </div>
         </div>
+      </div>
+      <div class="step-navigation">
+        <p>Cancel</p>
+        <div class="step-navigation-buttons">
+          <button type="button" class="back">Back</button>
+          <button type="button" class="next">Next</button>
+        </div>
+      </div>
     </div>
 
+    <!-- STEP 3: COMMITMENT -->
     <div class="step-label" id="step-3">
       <div class="step-label-text">
         <h3>3</h3>
@@ -60,21 +67,28 @@
       </div>
     </div>
 
-    <div class="step step-3">
+    <div class="step step-3" data-wizard-target="step" id="step-3-content">
       <div class="step-body-container">
-        <p class="semibold" id="step-heading">How seriously are you pursuing music right now?</h2>
-          <%# Form field %>
-            <h2 class="commitment-option" id="true">Music is my main focus or income</h3>
-            <h2 class="commitment-option" id="false">Music is a side passion or hobby</h3>
-          </div>
-       <div class="step-navigation">
-          <p>Cancel</p>
-          <button type="button" class="next"><%= f.submit "Finish", class: "button" %></button>
+        <p class="semibold" id="step-heading">How seriously are you pursuing music right now?</p>
+        <div class="form-container">
+          <h2 class="commitment-option" id="true">Music is my main focus or income</h2>
+          <h2 class="commitment-option" id="false">Music is a side passion or hobby</h2>
         </div>
+      </div>
+      <div class="step-navigation">
+        <p>Cancel</p>
+        <div class="step-navigation-buttons">
+          <button type="button" class="back">Back</button>
+          <button type="button" class="finish">Finish</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 <% end %>
 
+<!-- ... rest of your existing script below ... -->
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const input = document.querySelector(".location-input");
@@ -194,7 +208,7 @@
       renderSuggestions(matches);
     });
 
-// Commitment Options - moved inside DOMContentLoaded
+    // Commitment Options
     const commitmentOptions = document.querySelectorAll(".commitment-option");
     let selectedOption = null;
 

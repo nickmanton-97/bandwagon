@@ -130,7 +130,7 @@ nav .nav-links a {
 .wizard {
   flex-direction: row;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   overflow: hidden;
 }
@@ -141,6 +141,7 @@ nav .nav-links a {
   align-items: flex-start;
   justify-content: center;
   padding: 40px 24px;
+  flex-shrink: 0;
 }
 
 .step-label-text {
@@ -150,60 +151,37 @@ nav .nav-links a {
   gap: 40px;
 }
 
-#step-1 {
+#step-1, #step-1-content {
   background-color: #FF5700;
 }
 
-
-#step-2 {
+#step-2, #step-2-content {
   background-color: #32CE57;
 }
 
-
-#step-3 {
+#step-3, #step-3-content {
   background-color: #A3CAFF;
 }
 
 .step {
+  display: none;
   flex: 1;
-  padding: 40px 80px;
+  opacity: 0;
+  pointer-events: none;
 }
 
-.step-1 {
-  display: none;
-  /* display: flex; */
+.step.active {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 80px;
-  background-color: #FF5700;
-  width: fit-content;
-}
-
-.step-2 {
-  /* display: none; */
-  display: flex;
-  background-color: #32CE57;
-   flex-direction: column;
-  justify-content: space-between;
-  gap: 80px;
+  padding: 40px 80px;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .step-navigation-buttons {
   display: flex;
   gap: 16px;
-}
-
-.bio-form {
-  opacity: 50%;
-}
-
-.step-3 {
-  display: none;
-  /* display: flex; */
-  background-color: #A3CAFF;
-   flex-direction: column;
-  justify-content: space-between;
-  gap: 80px;
 }
 
 .commitment-option {
@@ -226,4 +204,28 @@ nav .nav-links a {
   display: flex;
   flex-direction: column;
   gap: 80px;
+}
+
+/* Bio textarea */
+.bio-textarea {
+  all: unset;
+  box-sizing: border-box;
+  border: 1px solid #0F0E0E;
+  padding: 16px;
+  width: 100%;
+  font-family: "Geist", sans-serif;
+  font-size: 16px;
+  line-height: 140%;
+  color: #0F0E0E;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.bio-textarea::placeholder {
+  color: rgba(15, 14, 14, 0.5);
+}
+
+.bio-textarea:focus {
+  outline: none;
+  border-color: #FF5700;
 }
