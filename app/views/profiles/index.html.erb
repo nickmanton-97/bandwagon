@@ -1,1 +1,90 @@
-<H1>Browse Profiles</H1>
+<div class="profiles-page">
+  <!-- Navigation -->
+  <nav class="logged-in">
+    <div class="logo-container">
+      <img src="images/homepage/bandwagon_logo_large.svg" class="logo" alt="Bandwagon">
+    </div>
+    <div class="nav-links">
+      <% if user_signed_in? %>
+        <%= link_to "My Profile", profile_path(current_user.profile), class: "link" %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %>
+      <% end %>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="profiles-main">
+    <!-- Header -->
+    <div class="profiles-header">
+      <h1 class="oversized">Browse Musicians</h1>
+      <p class="semibold">Find collaborators in your area</p>
+    </div>
+
+    <!-- Profiles Grid -->
+    <% if @profiles.any? %>
+      <div class="profile-grid">
+        <% @profiles.each do |profile| %>
+          <%= render "profile_card", profile: profile %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="profiles-empty">
+        <p class="semibold">No profiles yet. Be the first!</p>
+      </div>
+    <% end %>
+  </main>
+
+  <!-- Profile Detail Modal (Placeholder) -->
+  <div class="profile-modal"
+       id="profileModal"
+       data-controller="profile-modal"
+       role="dialog"
+       aria-labelledby="profileModalTitle"
+       aria-hidden="true">
+
+    <div class="profile-modal__overlay" data-action="click->profile-modal#close"></div>
+
+    <div class="profile-modal__content">
+      <button class="profile-modal__close"
+              data-action="click->profile-modal#close"
+              aria-label="Close profile modal">
+        ✕
+      </button>
+
+      <div class="profile-modal__body">
+        <div class="profile-modal__header">
+          <div class="profile-modal__image-wrapper">
+            <img class="profile-modal__image" src="" alt="">
+          </div>
+          <div class="profile-modal__title-section">
+            <h2 class="profile-modal__title" id="profileModalTitle"></h2>
+            <p class="profile-modal__location"></p>
+          </div>
+        </div>
+
+        <div class="profile-modal__details">
+          <div class="profile-modal__section">
+            <p class="caption-black">About</p>
+            <p class="profile-modal__bio"></p>
+          </div>
+
+          <div class="profile-modal__section">
+            <p class="caption-black">Instruments</p>
+            <div class="profile-modal__instruments"></div>
+          </div>
+
+          <div class="profile-modal__section">
+            <p class="caption-black">Commitment Level</p>
+            <p class="semibold profile-modal__commitment"></p>
+          </div>
+        </div>
+
+        <div class="profile-modal__actions">
+          <button class="button profile-modal__cta" data-action="profile-modal#sendInterest">
+            Get In Touch
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

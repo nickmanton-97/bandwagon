@@ -1,0 +1,59 @@
+<div class="profile-card"
+     data-controller="profile-card"
+     data-profile-id="<%= profile.id %>"
+     data-color-class="profile-colour-<%= profile.profile_colour %>">
+
+  <!-- Profile Picture -->
+  <div class="profile-card__image-wrapper">
+    <% if profile.profile_picture.attached? %>
+      <%= image_tag profile.profile_picture,
+          alt: "#{profile.first_name} #{profile.last_name}",
+          class: "profile-card__image" %>
+    <% else %>
+      <div class="profile-card__image-placeholder">
+        <span class="profile-card__initials">
+          <%= "#{profile.first_name&.first}#{profile.last_name&.first}" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Profile Info -->
+  <div class="profile-card__content">
+    <h3 class="profile-card__name">
+      <%= profile.first_name %> <%= profile.last_name %>
+    </h3>
+
+    <!-- Instruments -->
+    <% if profile.instruments.present? %>
+      <div class="profile-card__instruments">
+        <p class="caption-black">Instruments</p>
+        <div class="profile-card__tags">
+          <% profile.instruments.each do |instrument| %>
+            <span class="profile-card__tag"><%= instrument %></span>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- Commitment Level -->
+    <div class="profile-card__commitment">
+      <p class="caption-black">Commitment</p>
+      <p class="semibold">
+        <% if profile.serious? %>
+          Music is my main focus
+        <% else %>
+          Side passion or hobby
+        <% end %>
+      </p>
+    </div>
+
+  <!-- Action Area (for future use) -->
+  <div class="profile-card__actions">
+    <button class="profile-card__button"
+            data-action="profile-card#openModal"
+            aria-label="View profile for <%= profile.first_name %>">
+      View Profile
+    </button>
+  </div>
+</div>

@@ -5,8 +5,7 @@ class ProfilesController < ApplicationController
   def index
     if params[:filter].present?
       @profiles = Profile.where(
-        "instruments @> ARRAY[?]::varchar[] OR genres @> ARRAY[?]::varchar[]",
-        params[:filter],
+        "instruments @> ARRAY[?]::varchar[]",
         params[:filter]
       )
     else
@@ -53,6 +52,6 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:name, :bio, :location, instruments: [], genres: [])
+    params.require(:profile).permit(:first_name, :last_name, :bio, :location, :profile_colour, :commitment_level, :profile_picture, instruments: [])
   end
 end

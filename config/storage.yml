@@ -1,0 +1,17 @@
+# Store files locally in development/test
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+# Minimal in-memory store for test
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+# Example for cloud production (optional)
+# amazon:
+#   service: S3
+#   access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
+#   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+#   region: <%= ENV['AWS_REGION'] %>
+#   bucket: <%= ENV['AWS_BUCKET'] %>

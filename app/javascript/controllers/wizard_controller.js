@@ -10,7 +10,6 @@ export default class extends Controller {
   }
 
   setupEventListeners() {
-    // Find all next/back/finish buttons within the wizard
     this.element.querySelectorAll("button").forEach(btn => {
       const text = btn.textContent.trim().toLowerCase()
 
@@ -35,44 +34,42 @@ export default class extends Controller {
 
   next() {
     if (this.currentStepValue < this.stepTargets.length) {
-      this.transitionToStep(this.currentStepValue + 1)
+      this.transitionToStep(this.currentStepValue + 1, "forward")
     }
   }
 
   back() {
     if (this.currentStepValue > 1) {
-      this.transitionToStep(this.currentStepValue - 1)
+      this.transitionToStep(this.currentStepValue - 1, "backward")
     }
   }
 
   finish() {
-    // Submit the form
     const form = this.element.closest("form")
     if (form) {
       form.submit()
     }
   }
 
-  transitionToStep(stepNumber) {
+  transitionToStep(stepNumber, direction) {
     const currentStep = this.getStepElement(this.currentStepValue)
     const nextStep = this.getStepElement(stepNumber)
-    const direction = stepNumber > this.currentStepValue ? 1 : -1
 
-    // Animate out current step
+    // Close the mask (shrink width to 0)
     gsap.to(currentStep, {
-      duration: 0.3,
-      opacity: 0,
-      x: direction * -30,
+      duration: 0.15,
+      width: 0,
+      ease: "power2.out",
       onComplete: () => {
         currentStep.classList.remove("active")
         nextStep.classList.add("active")
 
-        // Animate in next step
-        gsap.fromTo(
-          nextStep,
-          { opacity: 0, x: direction * 30 },
-          { duration: 0.3, opacity: 1, x: 0 }
-        )
+        // Open the mask (expand width back to 100%)
+        gsap.to(nextStep, {
+          duration: 0.15,
+          width: "100%",
+          ease: "power2.out"
+        })
       }
     })
 
