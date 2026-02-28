@@ -6,7 +6,11 @@
     </div>
     <div class="nav-links">
       <% if user_signed_in? %>
-        <%= link_to "My Profile", profile_path(current_user.profile), class: "link" %>
+        <% if current_user.profile.present? %>
+          <%= link_to "My Profile", profile_path(current_user.profile), class: "link" %>
+        <% else %>
+          <%= link_to "Create Profile", new_profile_path, class: "link" %>
+        <% end %>
         <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "link" %>
       <% end %>
     </div>
@@ -33,58 +37,7 @@
       </div>
     <% end %>
   </main>
-
-  <!-- Profile Detail Modal (Placeholder) -->
-  <div class="profile-modal"
-       id="profileModal"
-       data-controller="profile-modal"
-       role="dialog"
-       aria-labelledby="profileModalTitle"
-       aria-hidden="true">
-
-    <div class="profile-modal__overlay" data-action="click->profile-modal#close"></div>
-
-    <div class="profile-modal__content">
-      <button class="profile-modal__close"
-              data-action="click->profile-modal#close"
-              aria-label="Close profile modal">
-        ✕
-      </button>
-
-      <div class="profile-modal__body">
-        <div class="profile-modal__header">
-          <div class="profile-modal__image-wrapper">
-            <img class="profile-modal__image" src="" alt="">
-          </div>
-          <div class="profile-modal__title-section">
-            <h2 class="profile-modal__title" id="profileModalTitle"></h2>
-            <p class="profile-modal__location"></p>
-          </div>
-        </div>
-
-        <div class="profile-modal__details">
-          <div class="profile-modal__section">
-            <p class="caption-black">About</p>
-            <p class="profile-modal__bio"></p>
-          </div>
-
-          <div class="profile-modal__section">
-            <p class="caption-black">Instruments</p>
-            <div class="profile-modal__instruments"></div>
-          </div>
-
-          <div class="profile-modal__section">
-            <p class="caption-black">Commitment Level</p>
-            <p class="semibold profile-modal__commitment"></p>
-          </div>
-        </div>
-
-        <div class="profile-modal__actions">
-          <button class="button profile-modal__cta" data-action="profile-modal#sendInterest">
-            Get In Touch
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+
+<!-- Profile Detail Modal -->
+<%= render "shared/profile_modal" %>

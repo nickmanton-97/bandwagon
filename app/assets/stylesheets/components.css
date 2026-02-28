@@ -415,9 +415,17 @@ nav .nav-links a {
   transition: background-color 0.2s ease;
   margin-top: 0;
 }
+/* ...existing code above... */
 
 .profile-card__button:hover {
   background-color: #333333;
+}
+
+/* Profile Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* Profile Modal */
@@ -433,7 +441,7 @@ nav .nav-links a {
   justify-content: center;
 }
 
-.profile-modal.is-open {
+.profile-modal:not(.hidden) {
   display: flex;
 }
 
@@ -445,6 +453,7 @@ nav .nav-links a {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
+  cursor: pointer;
 }
 
 .profile-modal__content {
@@ -469,7 +478,6 @@ nav .nav-links a {
   color: #8C8D92;
   cursor: pointer;
   padding: 4px 8px;
-  margin-top: 0;
   z-index: 10;
   transition: color 0.2s ease;
 }

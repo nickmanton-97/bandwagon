@@ -1,28 +1,18 @@
-<div class="profile-card"
-     data-controller="profile-card"
-     data-profile-id="<%= profile.id %>"
-     data-color-class="profile-colour-<%= profile.profile_colour %>">
-
-  <!-- Profile Picture -->
+<div class="profile-card profile-colour-<%= profile.profile_colour || 'blue' %>" data-controller="profile-modal" data-action="click->profile-modal#open">
+  <!-- Profile Image -->
   <div class="profile-card__image-wrapper">
     <% if profile.profile_picture.attached? %>
-      <%= image_tag profile.profile_picture,
-          alt: "#{profile.first_name} #{profile.last_name}",
-          class: "profile-card__image" %>
+      <%= image_tag profile.profile_picture, class: "profile-card__image", alt: "#{profile.first_name}'s profile picture" %>
     <% else %>
       <div class="profile-card__image-placeholder">
-        <span class="profile-card__initials">
-          <%= "#{profile.first_name&.first}#{profile.last_name&.first}" %>
-        </span>
+        <span class="profile-card__initials"><%= profile.first_name&.first %><%= profile.last_name&.first %></span>
       </div>
     <% end %>
   </div>
 
-  <!-- Profile Info -->
+  <!-- Profile Content -->
   <div class="profile-card__content">
-    <h3 class="profile-card__name">
-      <%= profile.first_name %> <%= profile.last_name %>
-    </h3>
+    <h3 class="profile-card__name"><%= profile.first_name %> <%= profile.last_name %></h3>
 
     <!-- Instruments -->
     <% if profile.instruments.present? %>
@@ -36,24 +26,18 @@
       </div>
     <% end %>
 
-    <!-- Commitment Level -->
-    <div class="profile-card__commitment">
-      <p class="caption-black">Commitment</p>
-      <p class="semibold">
-        <% if profile.serious? %>
-          Music is my main focus
-        <% else %>
-          Side passion or hobby
-        <% end %>
-      </p>
-    </div>
+    <!-- Commitment -->
+    <% if profile.commitment_level.present? %>
+      <div class="profile-card__commitment">
+        <p class="caption-black">Commitment</p>
+        <p class="body-black"><%= profile.commitment_level.titleize %></p>
+      </div>
+    <% end %>
   </div>
 
-  <!-- Action Area -->
+  <!-- Actions -->
   <div class="profile-card__actions">
-    <button class="profile-card__button"
-            data-action="profile-card#openModal"
-            aria-label="View profile for <%= profile.first_name %>">
+    <button type="button" class="profile-card__button" data-action="click->profile-modal#open" aria-label="View profile for <%= profile.first_name %>">
       View Profile
     </button>
   </div>

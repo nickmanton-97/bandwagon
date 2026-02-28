@@ -30,6 +30,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <%# Tilt Warp and Geist fonts from Google Fonts %>
     <link rel="preconnect" href="https://fonts.googleapis.com">

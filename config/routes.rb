@@ -9,9 +9,8 @@ Rails.application.routes.draw do
   }
 
   resources :profiles
-
-  # Optional 'interested in' functionality
-  # resources :interests, only: [:create, :index, :destroy]
+  resources :interests, only: [:create, :index, :destroy]
 
   get "up" => "rails/health#show", as: :rails_health_check
+
 end

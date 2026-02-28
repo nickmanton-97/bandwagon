@@ -1,0 +1,13 @@
+<div class="profile-modal hidden" id="profileModal" data-controller="profile-modal" data-profile-modal-target="modal">
+  <div class="profile-modal__overlay" data-action="click->profile-modal#close"></div>
+
+  <div class="profile-modal__content" data-profile-modal-target="content">
+    <button class="profile-modal__close" type="button" data-action="click->profile-modal#close" aria-label="Close profile modal">
+      ✕
+    </button>
+
+    <div class="profile-modal__body">
+      <p>Modal content here</p>
+    </div>
+  </div>
+</div>
